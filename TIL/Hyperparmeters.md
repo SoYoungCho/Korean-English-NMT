@@ -4,7 +4,7 @@ Weight = parameter
 
 hyperparamter : 파라미터 이외에 사람이 직접 설정하는 값
 
-예) batch_size, teacher_forcing_ratio, use_bidirectional, hidden_size, layer_size, dropout_ratio, etc.
+예) batch_size, teacher_forcing_ratio, use_bidirectional, hidden_size, layer_size, dropout_ratio, etc.  
 seq2seq에 특히 hyperparameter가 중요하다고 함. 이 값에 따라 성능이 크게 달라질 수 있음. (천차만별!)
 
 ## Batch, Epoch, Step 개념 정리하기
