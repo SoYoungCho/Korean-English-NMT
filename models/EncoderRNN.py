@@ -41,8 +41,6 @@ class EncoderRNN(nn.Module):
         super(EncoderRNN, self).__init__()
         self.rnn_cell = nn.LSTM if rnn_cell.lower() == 'lstm' else nn.GRU if rnn_cell.lower() == 'gru' else nn.RNN
         self.embedding = nn.Embedding(vocab_size, hidden_size)
-        if embedding is not None:
-            self.embedding.weight = nn.Parameter(embedding)
         self.n_layers = n_layers
         # BxLxH LxBxH
         self.rnn = self.rnn_cell(hidden_size, hidden_size, n_layers, batch_first=True, bidirectional=bidirectional, dropout=dropout_p)

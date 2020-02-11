@@ -30,7 +30,6 @@ class Seq2seq(nn.Module):
           representing lengths of output sequences, *KEY_SEQUENCE* : list of sequences, where each sequence is a list of
           predicted token IDs, *KEY_INPUT* : target outputs if provided for decoding, *KEY_ATTN_SCORE* : list of
           sequences, where each list is of attention weights }.
-김영건 전형철 김학현 박판식 김양범 정영호 박성현 손미영 조영복
 
     """
 

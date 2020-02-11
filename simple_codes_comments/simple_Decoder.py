@@ -56,6 +56,7 @@ class DecoderRNN(nn.Module):
         # torch.view() 같은 경우는 numpy에서의 np.reshape()에 해당하는 함수라고 생각하면 돼요.
         predicted_softmax = function(self.out(output.contiguous().view(-1, self.hidden_size)), dim=1).view(batch_size, output_size, -1)
         # softmax로 먹여서 총 classfication 에 대한 확률 분포를 리턴합니다.
+
         return predicted_softmax
 
     def forward(self, inputs=None, encoder_hidden=None, encoder_outputs=None, function=F.log_softmax, teacher_forcing_ratio=0.99):
