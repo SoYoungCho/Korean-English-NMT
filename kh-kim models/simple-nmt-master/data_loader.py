@@ -2,7 +2,8 @@ import os
 import sys
 import pandas as pd
 from torchtext import data, datasets
-from kor_tokenizer import Korean_tokenizer
+from tokenizer import Korean_tokenizer
+from tokenizer import English_tokenizer
 
 PAD, BOS, EOS = 1, 2, 3
 
@@ -41,7 +42,8 @@ class DataLoader():
                               include_lengths=True,
                               fix_length=fix_length,
                               init_token='<BOS>' if use_bos else None,
-                              eos_token='<EOS>' if use_eos else None
+                              eos_token='<EOS>' if use_eos else None,
+                              tokenize = English_tokenizer()
                               )
 
         #if train_fn is not None and valid_fn is not None and exts is not None:
