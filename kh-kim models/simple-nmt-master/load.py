@@ -8,7 +8,7 @@ if __name__ == '__main__':
     #                    )
     loader = DataLoader('C:/Users/Soyoung Cho/Desktop/NMT Project/dataset/', 'C:/Users/Soyoung Cho/Desktop/NMT Project/dataset/', ('kor_sample_5.csv', 'eng_sample_5.csv'),
                         shuffle=False,
-                        batch_size=8
+                        batch_size=6
                         )
 
     print("len(loader.src.vocab) : ", len(loader.src.vocab))
@@ -16,7 +16,7 @@ if __name__ == '__main__':
 
 
     for batch_index, batch in enumerate(loader.train_iter):
-        if batch_index > 1:
+        if batch_index > 2:
             break
 
         print(batch.src)
