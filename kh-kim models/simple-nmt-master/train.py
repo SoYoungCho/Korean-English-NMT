@@ -33,6 +33,7 @@ def define_argparser():
     p.add_argument(
         '--lang',
         required=True,
+        #default='koen',
         help='Set of extention represents language pair. (ex: en + ko --> enko)'
     )
     p.add_argument(

@@ -20,10 +20,10 @@ class Attention(nn.Module):
         # |h_t_tgt| = (batch_size, 1, hidden_size)
         # |mask| = (batch_size, length)
 
-        query = self.linear(h_t_tgt.squeeze(1)).unsqueeze(-1)
+        query = self.linear(h_t_tgt.squeeze(1)).unsqueeze(-1) # 1을 쥐어짜 없앰. -1은 맨 오른쪽 인덱스 자리에 해당하는 차원을 만드어줌.
         # |query| = (batch_size, hidden_size, 1)
 
-        weight = torch.bmm(h_src, query).squeeze(-1)
+        weight = torch.bmm(h_src, query).squeeze(-1) # batch matrix multiplication
         # |weight| = (batch_size, length)
         if mask is not None:
             # Set each weight as -inf, if the mask value equals to 1.
@@ -127,8 +127,8 @@ class Generator(nn.Module):
     def __init__(self, hidden_size, output_size):
         super(Generator, self).__init__()
 
-        self.output = nn.Linear(hidden_size, output_size)
-        self.softmax = nn.LogSoftmax(dim=-1)
+        self.output = nn.Linear(hidden_size, output_size) ##
+        self.softmax = nn.LogSoftmax(dim=-1) ##
 
     def forward(self, x):
         # |x| = (batch_size, length, hidden_size)
@@ -303,7 +303,7 @@ class Seq2Seq(nn.Module):
         y_hat = self.generator(h_tilde)
         # |y_hat| = (batch_size, length, output_size)
 
-        return y_hat
+        return y_hat # 해당 time step의 영어 토큰..?
 
     def search(self, src, is_greedy=True, max_length=255):
         mask, x_length = None, None
