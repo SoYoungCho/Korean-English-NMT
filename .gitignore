@@ -1,0 +1,5 @@
+# ignore all files in the build/ directory
+
+NMT codes/IBM/tokenizer
+NMT codes/IBM/csv
+NMT codes/IBM/weight_file
